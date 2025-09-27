@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ephora</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #050507;
+      color: #d0eaff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    header {
+      background: linear-gradient(90deg,#030305,#07070a);
+      border-bottom: 2px solid rgba(0,235,255,0.2);
+      padding: 28px 20px;
+      text-align: center;
+      color: #00eaff;
+      font-size: 2.2em;
+      letter-spacing: 6px;
+      text-shadow: 0 0 12px rgba(0,235,255,0.12), 0 0 30px rgba(0,235,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after{
+      content: '';
+      position: absolute;
+      right: -120px;
+      top: -80px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle at center, rgba(0,255,255,0.06), transparent 40%);
+      transform: rotate(12deg);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px;
+      background: rgba(3,3,3,0.6);
+      border-bottom: 1px solid rgba(0,235,255,0.06);
+      backdrop-filter: blur(4px);
+    }
+    nav a {
+      color: #00eaff;
+      text-decoration: none;
+      padding: 8px 14px;
+      border: 1px solid rgba(0,235,255,0.12);
+      border-radius: 8px;
+      transition: all 0.25s ease;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    nav a:hover {
+      background: rgba(0,235,255,0.06);
+      box-shadow: 0 0 14px rgba(0,235,255,0.08);
+      transform: translateY(-2px);
+    }
+    .container {
+      max-width: 980px;
+      margin: 26px auto;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(10,10,10,0.85), rgba(8,8,10,0.85));
+      border: 1px solid rgba(0,235,255,0.06);
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0,235,255,0.03) inset;
+      position: relative;
+      overflow: hidden;
+    }
+    h2 {
+      color: #aef5ff;
+      text-shadow: 0 0 8px rgba(0,235,255,0.08);
+      margin-top: 0;
+    }
+    input[type="search"], input[type="text"], input[type="email"], textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,235,255,0.12);
+      background: rgba(6,6,8,0.6);
+      color: #dff8ff;
+      outline: none;
+      transition: box-shadow .18s ease, transform .12s ease;
+      font-family: 'Courier New', monospace;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(200,255,255,0.35);
+    }
+    input:focus, textarea:focus, select:focus {
+      box-shadow: 0 0 18px rgba(0,235,255,0.06);
+      transform: translateY(-1px);
+    }
+    .search-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .search-row > * { flex: 1; }
+    .post {
+      background: rgba(3,3,4,0.6);
+      border: 1px solid rgba(0,235,255,0.06);
+      padding: 16px;
+      margin: 16px 0;
+      border-radius: 10px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .post::before{
+      content: 'CONFIDENTIAL';
+      position: absolute;
+      right: -40px;
+      top: 10px;
+      transform: rotate(45deg);
+      font-size: 10px;
+      color: rgba(0,235,255,0.03);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    .post:hover {
+      box-shadow: 0 18px 60px rgba(0,0,0,0.7), 0 0 24px rgba(0,235,255,0.06);
+      transform: translateY(-6px);
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: rgba(175,245,255,0.7);
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,235,255,0.12);
+      background: transparent;
+      color: #bff8ff;
+      cursor: pointer;
+      transition: background .15s ease, transform .12s ease;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .btn.primary {
+      background: linear-gradient(90deg, rgba(0,150,255,0.12), rgba(0,235,255,0.06));
+      box-shadow: 0 6px 30px rgba(0,235,255,0.03) inset;
+    }
+    footer {
+      text-align: center;
+      padding: 22px;
+      margin-top: 40px;
+      color: #9fbfc9;
+      border-top: 1px solid rgba(0,235,255,0.04);
+      font-size: 0.9rem;
+    }
+
+    /* Agent-like accents */
+    .badge {
+      display: inline-block;
+      background: rgba(0,235,255,0.06);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(0,235,255,0.08);
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .split { grid-template-columns: 1fr; }
+    }
+    .sidebar .card {
+      background: rgba(0,0,0,0.5);
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0,235,255,0.05);
+    }
+
+    /* subtle neon pulse */
+    @keyframes pulse-neon {
+      0% { box-shadow: 0 0 0px rgba(0,235,255,0.02); }
+      50% { box-shadow: 0 0 20px rgba(0,235,255,0.04); }
+      100% { box-shadow: 0 0 0px rgba(0,235,255,0.02); }
+    }
+    header .codename { display:inline-block; animation: pulse-neon 3s infinite; padding:4px 8px; border-radius:6px; border:1px solid rgba(0,235,255,0.06); background: rgba(0,0,0,0.4);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="codename">Ephora</div>
+    <div style="font-size:0.9rem;color:rgba(180,255,255,0.5);margin-top:6px;">Codename: Midnight Archive</div>
+  </header>
+
+  <nav>
+    <a href="#search">Search</a>
+    <a href="#categories">Categories</a>
+    <a href="#archive">Archive</a>
+    <a href="#contact">Contact</a>
+    <a href="#disclaimer">Disclaimer</a>
+  </nav>
+
+  <main class="container">
+    <div class="split">
+      <section>
+        <div id="search">
+          <h2>Search</h2>
+          <div class="search-row" style="margin-top:8px;">
+            <input type="search" placeholder="Type to search..." id="q" />
+            <select id="cat" style="max-width:160px;">
+              <option>All</option>
+              <option>Philosophy</option>
+              <option>Spiritual</option>
+              <option>History</option>
+              <option>Social & Politics</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="results" style="margin-top:18px;">
+          <div class="post">
+            <div class="meta">Philosophy — 2025-08-29</div>
+            <h3>The Problem of Evil: Mengapa Tuhan Membiarkan Kejahatan?</h3>
+            <p>Jadi, seolah-olah teisme menuntut kita untuk menyetujui adanya penderitaan, meskipun jelas penderitaan itu tidak akan pernah disetujui oleh orang yang mengalaminya.</p>
+            <div style="margin-top:10px;">
+              <button class="btn" onclick="window.location.href='index1.html'">Open</button>>
+            </div>
+          </div>
+
+          <div class="post">
+            <div class="meta">Spiritual — 2025-08-25</div>
+            <h3>Tuhan Di Dalam Al Qur'an Yang Suka Mengintervensi Alam Semesta</h3>
+            <p>tidak ada manfaatnya bagi mereka yang berdoa dan tidak ada konsekuensi negatif bagi mereka yang tidak berdoa.</p>
+            <div style="margin-top:10px;">
+              <button class="btn" onclick="window.location.href='index2.html'">Open</button>>
+            </div>
+          </div>
+        </div>
+
+        <div id="archive" style="margin-top:22px;">
+          <h2>Archive</h2>
+          <div class="post"><div class="meta">2024</div><div>Recovered File — July 2024</div></div>
+          <div class="post"><div class="meta">2023</div><div>Operation Silence — May 2023</div></div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3 class="badge">Browse</h3>
+          <div style="margin-top:10px;">
+            <button class="btn" onclick="filterCategory('All')">All</button>
+            <button class="btn" onclick="filterCategory('Philosophy')">Philosophy</button>
+            <button class="btn" onclick="filterCategory('Spiritual')">Spiritual</button>
+          </div>
+        </div>
+
+<form action="mailto:youraddress@gmail.com" method="post" enctype="text/plain">
+  <input type="text" placeholder="Codename" name="name" required>
+  <input type="email" placeholder="Email" name="email" required>
+  <textarea placeholder="Message" name="message" required></textarea>
+  <button class="btn primary" type="submit">Send</button>
+</form>
+
+        <div class="card" style="margin-top:12px;">
+          <h3 class="badge">Disclaimer</h3>
+          <p style="margin-top:8px;color:rgba(200,255,255,0.5);font-size:0.9rem;">This website presents exploratory reflections. Not official or classified intel.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Ephora. Midnight Operations.
+  </footer>
+
+  <script>
+    // Simple category filter (client-side)
+    function filterCategory(cat){
+      const posts = document.querySelectorAll('#results .post');
+      posts.forEach(p => {
+        if(cat === 'All'){ p.style.display = ''; return; }
+        const meta = p.querySelector('.meta').textContent || '';
+        if(meta.toLowerCase().includes(cat.toLowerCase())) p.style.display = '';
+        else p.style.display = 'none';
+      });
+      document.getElementById('cat').value = cat;
+    }
+
+    // Simple search
+    document.getElementById('q').addEventListener('input', function(e){
+      const q = e.target.value.toLowerCase();
+      const posts = document.querySelectorAll('#results .post');
+      posts.forEach(p => {
+        const text = (p.textContent || '').toLowerCase();
+        p.style.display = text.includes(q) ? '' : 'none';
+      });
+    });
+
+    // Contact handler (mailto fallback)
+    function handleContact(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const msg = encodeURIComponent(document.getElementById('message').value);
+      const subject = encodeURIComponent('Transmission from ' + name);
+      window.location.href = `mailto:contact@ephora.example?subject=${subject}&body=From:%20${name}%20(${email})%0A%0A${msg}`;
+    }
+  </script>
+</body>
+</html>
