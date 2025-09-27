@@ -13,20 +13,23 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      font-size: 16px; /* default ukuran lebih ramah di HP */
     }
+
     header {
       background: linear-gradient(90deg,#030305,#07070a);
       border-bottom: 2px solid rgba(0,235,255,0.2);
-      padding: 28px 20px;
+      padding: 20px;
       text-align: center;
       color: #00eaff;
-      font-size: 2.2em;
-      letter-spacing: 6px;
+      font-size: 1.8em;
+      letter-spacing: 4px;
       text-shadow: 0 0 12px rgba(0,235,255,0.12), 0 0 30px rgba(0,235,255,0.06);
       position: relative;
       overflow: hidden;
     }
-    header::after{
+
+    header::after {
       content: '';
       position: absolute;
       right: -120px;
@@ -36,51 +39,57 @@
       background: radial-gradient(circle at center, rgba(0,255,255,0.06), transparent 40%);
       transform: rotate(12deg);
     }
+
     nav {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      padding: 14px;
+      flex-wrap: wrap; /* biar turun ke bawah kalau sempit */
+      gap: 10px;
+      padding: 10px;
       background: rgba(3,3,3,0.6);
       border-bottom: 1px solid rgba(0,235,255,0.06);
       backdrop-filter: blur(4px);
     }
+
     nav a {
       color: #00eaff;
       text-decoration: none;
-      padding: 8px 14px;
+      padding: 6px 12px;
       border: 1px solid rgba(0,235,255,0.12);
       border-radius: 8px;
       transition: all 0.25s ease;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
+
     nav a:hover {
       background: rgba(0,235,255,0.06);
       box-shadow: 0 0 14px rgba(0,235,255,0.08);
       transform: translateY(-2px);
     }
+
     .container {
       max-width: 980px;
-      margin: 26px auto;
-      padding: 22px;
+      margin: 20px auto;
+      padding: 16px;
       background: linear-gradient(180deg, rgba(10,10,10,0.85), rgba(8,8,10,0.85));
       border: 1px solid rgba(0,235,255,0.06);
       border-radius: 12px;
       box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0,235,255,0.03) inset;
-      position: relative;
-      overflow: hidden;
     }
+
     h2 {
       color: #aef5ff;
       text-shadow: 0 0 8px rgba(0,235,255,0.08);
       margin-top: 0;
+      font-size: 1.4rem;
     }
+
     input[type="search"], input[type="text"], input[type="email"], textarea, select {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid rgba(0,235,255,0.12);
       background: rgba(6,6,8,0.6);
@@ -88,52 +97,52 @@
       outline: none;
       transition: box-shadow .18s ease, transform .12s ease;
       font-family: 'Courier New', monospace;
+      font-size: 1rem;
     }
+
     input::placeholder, textarea::placeholder {
       color: rgba(200,255,255,0.35);
     }
+
     input:focus, textarea:focus, select:focus {
       box-shadow: 0 0 18px rgba(0,235,255,0.06);
       transform: translateY(-1px);
     }
+
     .search-row {
       display: flex;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
       align-items: center;
     }
-    .search-row > * { flex: 1; }
+
+    .search-row > * {
+      flex: 1;
+      min-width: 120px;
+    }
+
     .post {
       background: rgba(3,3,4,0.6);
       border: 1px solid rgba(0,235,255,0.06);
-      padding: 16px;
-      margin: 16px 0;
+      padding: 14px;
+      margin: 14px 0;
       border-radius: 10px;
       transition: transform .18s ease, box-shadow .18s ease;
-      position: relative;
-      overflow: hidden;
     }
-    .post::before{
-      content: 'CONFIDENTIAL';
-      position: absolute;
-      right: -40px;
-      top: 10px;
-      transform: rotate(45deg);
-      font-size: 10px;
-      color: rgba(0,235,255,0.03);
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+
     .post:hover {
       box-shadow: 0 18px 60px rgba(0,0,0,0.7), 0 0 24px rgba(0,235,255,0.06);
-      transform: translateY(-6px);
+      transform: translateY(-4px);
     }
+
     .meta {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: rgba(175,245,255,0.7);
     }
+
     .btn {
       display: inline-block;
-      padding: 10px 16px;
+      padding: 8px 14px;
       border-radius: 8px;
       border: 1px solid rgba(0,235,255,0.12);
       background: transparent;
@@ -142,40 +151,37 @@
       transition: background .15s ease, transform .12s ease;
       text-transform: uppercase;
       font-size: 0.8rem;
-      letter-spacing: 1px;
       font-weight: 700;
     }
+
     .btn.primary {
       background: linear-gradient(90deg, rgba(0,150,255,0.12), rgba(0,235,255,0.06));
-      box-shadow: 0 6px 30px rgba(0,235,255,0.03) inset;
-    }
-    footer {
-      text-align: center;
-      padding: 22px;
-      margin-top: 40px;
-      color: #9fbfc9;
-      border-top: 1px solid rgba(0,235,255,0.04);
-      font-size: 0.9rem;
     }
 
-    /* Agent-like accents */
+    footer {
+      text-align: center;
+      padding: 16px;
+      margin-top: 30px;
+      color: #9fbfc9;
+      border-top: 1px solid rgba(0,235,255,0.04);
+      font-size: 0.85rem;
+    }
+
     .badge {
       display: inline-block;
       background: rgba(0,235,255,0.06);
-      padding: 6px 10px;
+      padding: 4px 8px;
       border-radius: 999px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       border: 1px solid rgba(0,235,255,0.08);
     }
+
     .split {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: 1fr 300px;
+      gap: 16px;
     }
-    @media (max-width: 880px) {
-      .split { grid-template-columns: 1fr; }
-    }
+
     .sidebar .card {
       background: rgba(0,0,0,0.5);
       padding: 12px;
@@ -183,15 +189,25 @@
       border: 1px solid rgba(0,235,255,0.05);
     }
 
-    /* subtle neon pulse */
-    @keyframes pulse-neon {
-      0% { box-shadow: 0 0 0px rgba(0,235,255,0.02); }
-      50% { box-shadow: 0 0 20px rgba(0,235,255,0.04); }
-      100% { box-shadow: 0 0 0px rgba(0,235,255,0.02); }
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      header { font-size: 1.5em; letter-spacing: 3px; }
+      .split { grid-template-columns: 1fr; }
+      nav a { font-size: 0.75rem; padding: 6px 10px; }
+      .container { padding: 12px; margin: 12px; }
+      h2 { font-size: 1.2rem; }
+      .btn { font-size: 0.75rem; padding: 6px 12px; }
     }
-    header .codename { display:inline-block; animation: pulse-neon 3s infinite; padding:4px 8px; border-radius:6px; border:1px solid rgba(0,235,255,0.06); background: rgba(0,0,0,0.4);}
+
+    @media (max-width: 480px) {
+      body { font-size: 15px; }
+      header { font-size: 1.3em; letter-spacing: 2px; padding: 16px; }
+      nav { gap: 6px; padding: 8px; }
+      .post { padding: 12px; }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="codename">Ephora</div>
@@ -260,8 +276,8 @@
           </div>
         </div>
 
-<form action="mailto:youraddress@gmail.com" method="post" enctype="text/plain">
-  <input type="text" placeholder="Codename" name="name" required>
+<form action="mailto:semuel1945@gmail.com" method="post" enctype="text/plain">
+  <input type="text" placeholder="subject" name="name" required>
   <input type="email" placeholder="Email" name="email" required>
   <textarea placeholder="Message" name="message" required></textarea>
   <button class="btn primary" type="submit">Send</button>
@@ -269,7 +285,7 @@
 
         <div class="card" style="margin-top:12px;">
           <h3 class="badge">Disclaimer</h3>
-          <p style="margin-top:8px;color:rgba(200,255,255,0.5);font-size:0.9rem;">This website presents exploratory reflections. Not official or classified intel.</p>
+          <p style="margin-top:8px;color:rgba(200,255,255,0.5);font-size:0.9rem;">untuk kalangan sendiri.</p>
         </div>
       </aside>
     </div>
