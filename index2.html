@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ephora</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-size: 20px;       /* ukuran font dasar lebih besar */
+      line-height: 1.8;      /* jarak antar baris lebih lega */
+    }
+
+    header {
+      background: #000;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #0ff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;     /* perbesar judul */
+    }
+
+    header a {
+      text-decoration: none;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+      transition: 0.3s;
+    }
+
+    header a:hover {
+      color: #08f;
+      text-shadow: 0 0 20px #08f;
+    }
+
+    main {
+      max-width: 900px;     /* agak lebih lebar */
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid #0ff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #0ff;
+      font-size: 1.1em;     /* teks isi artikel lebih besar */
+    }
+
+    h2 {
+      color: #0ff;
+      text-shadow: 0 0 8px #0ff;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .date {
+      font-size: 1em;
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid #0ff;
+      font-style: italic;
+    }
+
+    /* Neon Floating Audio Player */
+    .audio-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid #0ff;
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 0 15px #0ff;
+    }
+
+    .audio-player button {
+      background: none;
+      border: 2px solid #0ff;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      color: #0ff;
+      font-size: 20px;
+      cursor: pointer;
+      text-shadow: 0 0 8px #0ff;
+      transition: 0.3s;
+    }
+
+    .audio-player button:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    .progress-container {
+      flex: 1;
+      height: 8px;
+      background: #111;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #0ff, #08f);
+      box-shadow: 0 0 10px #0ff;
+      transition: width 0.2s;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">Ephora</a></h1>
+  </header>
+
+  <!-- Artikelmu tetap sama di sini -->
+<main>
+  <h2>Tuhan di Dalam Al-Qur'an yang Suka Mengintervensi Alam Semesta</h2>
+  <div class="date">Agustus 25, 2025</div>
+
+  <p>Manusia purba memiliki pengetahuan yang sangat sedikit mengenai fenomena alam dan sebab akibat di balik fenomena alam. Bagaimana matahari bisa terbit dan terbenam? Bagaimana langit dapat mengeluarkan kilatan dan suara yang keras? Bagaimana air bisa turun dari langit? Jadi wajar saja bila manusia purba menganggap hal-hal tadi sebagai sebuah keajaiban dan selalu mengaitkannya dengan sosok yang maha tinggi dan maha kuasa.</p>
+
+  <p>Mereka percaya Tuhanlah yang melakukan semua ini. Mereka berusaha mencari bantuan dari sosok yang berkuasa atas alam semesta ini dengan persembahan kecil agar mereka selalu diberikan kehidupan yang makmur. Mereka mengorbankan harta benda yang dimilikinya bahkan rela mengorbankan nyawa manusia demi menyenangkan Tuhan mereka.</p>
+
+  <p>Nampak sekali bahwa Tuhan yang mereka percayai ini secara langsung dapat ikut campur dalam mengendalikan unsur-unsur, entah itu mengirimkannya atau menahannya tergantung pada kondisinya yang sedang senang atau marah. Bila mereka berhasil membuat Tuhannya senang, maka Dia akan menurunkan hujan agar tanaman tumbuh subur dan hewan ternak melimpah. Namun apabila Tuhannya sedang marah, Dia akan mengirimkan banjir, kekeringan, atau angin badai yang dapat menyapu tanaman dan mematikan hewan ternak mereka. Seperti itulah manusia purba selama ribuan tahun melihat bagaimana cara alam bekerja.</p>
+
+  <p>Di dalam Al-Qur'an juga menceritakan Tuhan yang seperti itu: keberhasilan bisa dicapai dengan menyenangkannya, dengan mematuhinya, membungkuk kepada-Nya, atau bersujud kepada-Nya. Dia dapat menurunkan hujan kepada siapa pun yang Ia kehendaki.</p>
+
+  <blockquote>
+    <p>"Lalu, Kami membukakan pintu-pintu langit dengan (menurunkan) air yang tercurah. Kami pun menjadikan bumi menyemburkan banyak mata air. Maka, berkumpullah semua air itu sehingga (meluap dan menimbulkan) bencana yang telah ditetapkan." (QS. 2:11–12)</p>
+  </blockquote>
+
+  <blockquote>
+    <p>"Masing-masing (dari mereka) Kami azab karena dosanya. Di antara mereka ada yang Kami timpakan angin kencang (yang mengandung) batu kerikil, ada yang ditimpa suara keras yang mengguntur, ada yang Kami benamkan ke dalam bumi, dan ada pula yang Kami tenggelamkan." (QS. 29:40)</p>
+  </blockquote>
+
+  <blockquote>
+    <p>"Engkau muliakan siapa yang Engkau kehendaki dan Engkau hinakan siapa yang Engkau kehendaki. Di tangan-Mulah segala kebajikan. Sesungguhnya Engkau Mahakuasa atas segala sesuatu." (QS. 3:26)</p>
+  </blockquote>
+
+  <p>Tidak ada hal di dunia ini yang bangkit maupun jatuh, bergerak maupun diam kecuali melalui keterlibatan-Nya. Namun salah satu dari banyak alasan manusia di zaman modern ini meragukan agama mereka adalah karena mereka sudah mengetahui bagaimana hukum alam mengatur hal-hal ini. Mereka mengetahui bagaimana gempa atau tsunami dapat terjadi. Bahkan mereka bisa memprediksi kapan terjadi hujan, badai, atau kekeringan. Mereka bisa memperhitungkan pola-pola ini dan mengamati sebab-akibatnya. Mereka bisa memanfaatkan angin dan air untuk menghasilkan energi. Mereka tidak pernah melihat hukum alam dilanggar, tidak pula melihat campur tangan ilahi seperti dalam kitab suci.</p>
+
+  <p>Tidak ada manfaatnya bagi mereka yang berdoa dan tidak ada konsekuensi negatif bagi mereka yang tidak berdoa. Alam akan selalu bekerja sesuai hukumnya. Gempa atau tsunami sering muncul di daerah-daerah sekitar cincin api Pasifik, bukan di daerah tertentu tempat orang kafir tinggal. Baik orang kafir maupun orang beriman mengetahui bahwa tidak ada fenomena yang melanggar hukum alam di dunia nyata.</p>
+
+  <p>Mundur jauh ke belakang, banyak teolog telah menggeser sifat ketuhanan dari Tuhan yang suka mengintervensi alam semesta dengan mukjizat menuju konsep Tuhan yang imanen dan transenden, yang bekerja secara tidak langsung dan misterius. Itu tampak baik, tetapi bukan gambaran yang disampaikan di dalam Al-Qur'an. Al-Qur'an menarasikan bahwa Tuhan seringkali mengintervensi alam semesta dengan kejadian besar seperti banjir, gempa, dan tsunami kepada mereka yang tidak beriman.</p>
+
+  <blockquote>
+    <p>"Tidakkah mereka perhatikan betapa banyak generasi sebelum mereka yang telah Kami binasakan? (Yaitu) generasi yang telah Kami teguhkan kedudukan mereka di muka bumi, yang belum pernah Kami lakukan kepada kamu; dan Kami curahkan air hujan yang lebat, Kami jadikan sungai-sungai mengalir di bawah mereka; lalu Kami binasakan mereka karena dosa-dosa mereka, selanjutnya Kami munculkan sesudah mereka generasi lain." (QS. 6:6)</p>
+  </blockquote>
+
+  <p>Intervensi Tuhan di dalam Al-Qur'an seringkali dikutip sebagai tanda (ayah) dan bukti kekuasaan-Nya. Orang-orang Makkah terus meminta Nabi Muhammad menunjukkan mukjizat. Mereka sudah mendengar cerita nabi terdahulu yang melakukan mukjizat, jadi wajar saja jika mereka meminta Muhammad melakukan hal serupa.</p>
+
+  <blockquote>
+    <p>"Mengapa tidak diturunkan kepadanya (Nabi Muhammad) suatu bukti (mukjizat) dari Tuhannya?” (QS. 6:37)</p>
+  </blockquote>
+
+  <p>Namun Al-Qur'an malah menjawab dengan fenomena alam biasa:</p>
+
+  <blockquote>
+    <p>"Tidakkah mereka memperhatikan burung-burung yang dapat terbang di angkasa dengan mudah. Tidak ada yang menahannya selain Allah. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang beriman." (QS. 16:79)</p>
+  </blockquote>
+
+  <p>Ya, memang Allah yang menahan burung-burung itu, meskipun secara tidak langsung melalui aerodinamika udara dan hasil evolusi jutaan tahun. Banyak Muslim berkata, "tetap saja Allah lah yang menciptakan hukum alam tersebut." Tetapi jujur saja, jawaban ini mengecewakan. Orang-orang Makkah mengharapkan mukjizat besar, bukan sekadar fenomena biasa. Mengatakan "lihatlah burung-burung terbang" tidaklah sama dengan kisah mukjizat nabi-nabi terdahulu.</p>
+
+  <p>Tidakkah penulis Al-Qur'an mengetahui bahwa orang-orang di masa depan akan memahami bagaimana burung terbang, bahkan menciptakan pesawat? Lalu mengapa Al-Qur'an menganggap burung terbang sebagai tanda keajaiban?</p>
+
+  <p>Hal lain yang Al-Qur'an sampaikan adalah perintah untuk berjalan di bumi dan melihat bekas kehancuran umat kafir:</p>
+
+  <blockquote>
+    <p>"Katakanlah (Nabi Muhammad), 'Jelajahilah bumi, kemudian perhatikanlah bagaimana kesudahan orang-orang yang mendustakan itu.'" (QS. 6:11)</p>
+  </blockquote>
+
+  <p>Ini menimbulkan kebingungan. Akhir kehidupan orang kafir tidak ada bedanya dengan orang Muslim. Bahkan ada orang kafir yang hidupnya lebih baik. Bagaimana kita bisa tahu siapa yang menghancurkan kota kuno yang sudah terkubur? Apa bukti klaim Al-Qur'an itu?</p>
+
+  <blockquote>
+    <p>"Apakah kamu merasa aman dari kemungkinan Dia akan membenamkan sebagian daratan bersama kamu atau mengirimkan kerikil, lalu kamu tidak akan mendapati seorang pun sebagai pelindung? Ataukah kamu merasa aman bahwa Dia tidak akan mengembalikanmu ke laut sekali lagi, lalu mengirimkan angin topan kepadamu dan menenggelamkanmu disebabkan kekufuranmu?" (QS. 17:68–69)</p>
+  </blockquote>
+
+  <p>Namun faktanya, bencana alam tidak hanya menimpa orang kafir. Justru banyak negara Muslim yang lebih menderita karena bencana atau peperangan akibat minimnya teknologi mitigasi.</p>
+
+  <blockquote>
+    <p>"Apakah penduduk negeri-negeri itu merasa aman dari siksa Kami yang datang pada malam hari ketika mereka sedang tidur?" (QS. 7:97)</p>
+  </blockquote>
+
+  <p>Banyak ayat di dalam Al-Qur'an berisi ancaman. Tanpa malu-malu, Al-Qur'an menggunakan narasi ancaman untuk mengeksploitasi kondisi manusia yang rentan terhadap rasa takut demi memaksa mereka menerima Islam. Hal ini merusak citra Tuhan yang maha bijaksana dan maha pengasih. Ini juga menimbulkan pertanyaan: mengapa Tuhan perlu menggunakan ancaman untuk membuat orang percaya, jika kebenaran-Nya jelas?</p>
+</main>
+
+
+  <div class="audio-player">
+    <button id="playPauseBtn">▶</button>
+    <div class="progress-container">
+      <div class="progress" id="progressBar"></div>
+    </div>
+    <audio id="audio" src="audio.mp3"></audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const progressBar = document.getElementById('progressBar');
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const progress = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = progress + '%';
+    });
+  </script>
+</body>
+</html>
